@@ -5,3 +5,7 @@ db.py
 .venv
 
 __pycache__
+
+csv_data/test.csv
+
+extract_data.sql
