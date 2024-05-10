@@ -9,7 +9,7 @@ test_items = get_col_as_ints('csv_data/test.csv', ITEM_COLUMN_INDEX)
 
 # ---------- EXTRACT ITEMS: SEMANTIC ----------
 # Condition: semantic and all humans
-sem_6hum_items = get_col_as_ints('csv_data/sem_6hum.csv', ITEM_COLUMN_INDEX, delimiter=';')
+sem_6hum_items = get_col_as_ints('csv_data/sem_6hum.csv', ITEM_COLUMN_INDEX)
 
 # Condition: semantic and all bots
 sem_6bots_items = test_items
@@ -23,7 +23,7 @@ sem_3bots_3hum_items = get_col_as_ints('csv_data/sem_3bots_3hum.csv', ITEM_COLUM
 
 # ---------- EXTRACT ITEMS: NON-SEMANTIC ----------
 # Condition: non-semantic and all humans
-nonsem_6hum_items = get_col_as_ints('csv_data/nonsem_6hum.csv', ITEM_COLUMN_INDEX, delimiter=';')
+nonsem_6hum_items = get_col_as_ints('csv_data/nonsem_6hum.csv', ITEM_COLUMN_INDEX)
 
 # Condition: non-semantic and all bots
 nonsem_6bots_items = test_items

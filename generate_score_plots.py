@@ -9,7 +9,7 @@ test_score = get_col_as_ints('csv_data/test.csv', SCORE_COLUMN_INDEX)
 
 # ---------- EXTRACT SCORES: SEMANTIC ----------
 # Condition: semantic and all humans
-sem_6hum_score = get_col_as_ints('csv_data/sem_6hum.csv', SCORE_COLUMN_INDEX, delimiter=';')
+sem_6hum_score = get_col_as_ints('csv_data/sem_6hum.csv', SCORE_COLUMN_INDEX)
 
 # Condition: semantic and all bots
 sem_6bots_score = test_score
@@ -23,7 +23,7 @@ sem_3bots_3hum_score = get_col_as_ints('csv_data/sem_3bots_3hum.csv', SCORE_COLU
 
 # ---------- EXTRACT SCORES: NON-SEMANTIC ----------
 # Condition: non-semantic and all humans (bots = 0)
-nonsem_6hum_score = get_col_as_ints('csv_data/nonsem_6hum.csv', SCORE_COLUMN_INDEX, delimiter=';')
+nonsem_6hum_score = get_col_as_ints('csv_data/nonsem_6hum.csv', SCORE_COLUMN_INDEX)
 
 # Condition: non-semantic and all bots (bots = 6)
 nonsem_6bots_score = test_score
