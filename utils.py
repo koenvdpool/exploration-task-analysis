@@ -25,12 +25,13 @@ def get_col_as_ints(csv_filename, column_index, delimiter=','):
         return [int(row[column_index]) for row in reader if row]
 
 
-def create_boxplot(data, ylabel, title):
-    """TODO."""
-    fig, ax = plt.subplots(figsize=(10.5, 6))
+def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_pos, xtick_labels, figsize,
+                   bbox_to_anchor=(0.8, 1)):
+    """
+    TODO.
+    """
+    fig, ax = plt.subplots(figsize=figsize)
 
-    colors = ['#A2CBE8', '#A7D3A6', '#F9CDAE', '#F9A7A7', '#A2CBE8', '#A7D3A6', '#F9CDAE', '#F9A7A7']
-    hatch_patterns = ['///', '///', '///', '///', '..', '..', '..', '..']
     hatch_color = '#808080'
 
     bp = ax.boxplot(data, vert=True, patch_artist=True)
@@ -40,9 +41,9 @@ def create_boxplot(data, ylabel, title):
         patch.set_edgecolor(hatch_color)
         patch.set_hatch(hatch)
 
-    ax.axvline(x=4.5, color='lightgrey', linestyle=':', linewidth=1.5)
+    ax.axvline(x=vert_line_pos, color='lightgrey', linestyle=':', linewidth=1.5)
 
-    ax.set_xticklabels(['All Humans', 'All Bots', 'Hybrid: 1 Bot', 'Hybrid: 3 Bots'] * 2)
+    ax.set_xticklabels(xtick_labels)
 
     semantic_patch = Patch(facecolor='#D3D3D3', hatch='///', label='Semantic')
     non_semantic_patch = Patch(facecolor='#D3D3D3', hatch='...', label='Non-Semantic')
@@ -51,7 +52,7 @@ def create_boxplot(data, ylabel, title):
         handles=[semantic_patch, non_semantic_patch],
         title='Game Variant',
         loc='upper left',
-        bbox_to_anchor=(0.8, 1),
+        bbox_to_anchor=bbox_to_anchor,
         frameon=False
     )
 

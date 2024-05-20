@@ -60,7 +60,3 @@ save_to_csv(is_semantic=1, bot_num=3, filename='csv_data/sem_3bots_3hum.csv')
 
 # Condition: non-semantic and hybrid (bots = 3, humans = 3)
 # save_to_csv(is_semantic=0, bot_num=3, filename='csv_data/nonsem_3bots_3hum.csv')
-
-
-# Condition: TEST - semantic and hybrid (bots = 5)
-save_to_csv(is_semantic=1, bot_num=5, filename='csv_data/test.csv')
