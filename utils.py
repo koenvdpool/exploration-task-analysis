@@ -26,7 +26,7 @@ def get_col_as_ints(csv_filename, column_index, delimiter=','):
 
 
 def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_pos, xtick_labels, figsize,
-                   bbox_to_anchor=(0.8, 1)):
+                   bbox_to_anchor=(0.8, 1), variant=None):
     """
     TODO.
     """
@@ -48,8 +48,15 @@ def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_pos, x
     semantic_patch = Patch(facecolor='#D3D3D3', hatch='///', label='Semantic')
     non_semantic_patch = Patch(facecolor='#D3D3D3', hatch='...', label='Non-Semantic')
 
+    if variant == "semantic":
+        legend_handles = [semantic_patch]
+    elif variant == "non-semantic":
+        legend_handles = [non_semantic_patch]
+    else:
+        legend_handles = [semantic_patch, non_semantic_patch]
+
     ax.legend(
-        handles=[semantic_patch, non_semantic_patch],
+        handles=legend_handles,
         title='Game Variant',
         loc='upper left',
         bbox_to_anchor=bbox_to_anchor,

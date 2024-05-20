@@ -47,7 +47,7 @@ all_conditions_hatch_patterns = ['///', '///', '///', '///', '..', '..', '..', '
 all_conditions_xtick_labels = ['All Humans', 'All Bots', 'Hybrid: 1 Bot', 'Hybrid: 3 Bots'] * 2
 all_confitions_figsize = (10.5, 6)
 
-boxplot_items = create_boxplot(items_data, 'Number of Found Items', 'Boxplot of TODO', all_conditions_colors,
+boxplot_items = create_boxplot(items_data, 'Number of Found Items', 'Boxplot of Items', all_conditions_colors,
                                all_conditions_hatch_patterns, 4.5, all_conditions_xtick_labels,
                                all_confitions_figsize)
 boxplot_items.savefig('plots/boxplot_items_sem_vs_nonsem.pdf', format='pdf')
