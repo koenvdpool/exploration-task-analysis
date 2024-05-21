@@ -1,6 +1,6 @@
 .idea
 
-db.py
+scripts/db.py
 
 .venv
 
@@ -8,4 +8,4 @@ __pycache__
 
 csv_data/test.csv
 
-extract_data.sql
+scripts/extract_data.sql
