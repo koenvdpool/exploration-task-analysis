@@ -35,7 +35,7 @@ preliminary_study_figsize = (5, 7)
 # Create boxplot for items
 boxplot_items_preliminary_study = create_boxplot(items_data_preliminary_study, 'Number of Found Items',
                                                  'Boxplot of Preliminary Study', preliminary_study_colors,
-                                                 preliminary_study_hatch_patterns, 2.5,
+                                                 preliminary_study_hatch_patterns, [2.5],
                                                  preliminary_study_xtick_labels, preliminary_study_figsize,
                                                  bbox_to_anchor=(0.55, 1))
 boxplot_items_preliminary_study.savefig('../../plots/preliminary-study/boxplot_items_preliminary_study.pdf', format='pdf')
@@ -44,7 +44,7 @@ boxplot_items_preliminary_study.show()
 # Create boxplot for score
 boxplot_score_preliminary_study = create_boxplot(score_data_preliminary_study, 'Score',
                                                  'Boxplot of Preliminary Study', preliminary_study_colors,
-                                                 preliminary_study_hatch_patterns, 2.5,
+                                                 preliminary_study_hatch_patterns, [2.5],
                                                  preliminary_study_xtick_labels, preliminary_study_figsize,
                                                  bbox_to_anchor=(0.55, 1))
 boxplot_score_preliminary_study.savefig('../../plots/preliminary-study/boxplot_score_preliminary_study.pdf', format='pdf')

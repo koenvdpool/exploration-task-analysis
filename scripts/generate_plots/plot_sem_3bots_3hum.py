@@ -50,7 +50,7 @@ sem_3b3h_figsize = (8, 6)
 # Create boxplot for items found
 boxplot_items_sem_3b3h = create_boxplot(items_data_sem_3b3h, 'Number of Found Items',
                                                  'Items Found in Semantic Condition: Hybrid with 3 Bots', sem_3b3h_colors, sem_3b3h_hatch_patterns,
-                                                 1.5, sem_3b3h_xtick_labels, sem_3b3h_figsize,
+                                                 [1.5], sem_3b3h_xtick_labels, sem_3b3h_figsize,
                                                  bbox_to_anchor=(0.75, 1), variant='semantic')
 boxplot_items_sem_3b3h.savefig('../../plots/condition-semantic/boxplot_items_sem_3bots_3hum.pdf', format='pdf')
 boxplot_items_sem_3b3h.show()
@@ -58,7 +58,7 @@ boxplot_items_sem_3b3h.show()
 
 # Create boxplot for score
 boxplot_score_sem_3b3h = create_boxplot(score_data_sem_3b3h, 'Score', 'Score in Semantic Condition: Hybrid with 3 Bots', sem_3b3h_colors,
-                                       sem_3b3h_hatch_patterns, 1.5, sem_3b3h_xtick_labels, sem_3b3h_figsize,
+                                       sem_3b3h_hatch_patterns, [1.5], sem_3b3h_xtick_labels, sem_3b3h_figsize,
                                        bbox_to_anchor=(0.75, 1), variant='semantic')
 boxplot_score_sem_3b3h.savefig('../../plots/condition-semantic/boxplot_score_sem_3bots_3hum.pdf', format='pdf')
 boxplot_score_sem_3b3h.show()

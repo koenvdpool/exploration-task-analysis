@@ -46,14 +46,14 @@ all_confitions_figsize = (10.5, 6)
 
 # Create boxplot for items
 boxplot_items = create_boxplot(items_data_all, 'Number of Found Items', 'Boxplot of Items', all_conditions_colors,
-                               all_conditions_hatch_patterns, 4.5, all_conditions_xtick_labels,
+                               all_conditions_hatch_patterns, [4.5], all_conditions_xtick_labels,
                                all_confitions_figsize)
 boxplot_items.savefig('../../plots/condition-all/boxplot_items_all.pdf', format='pdf')
 boxplot_items.show()
 
 # Create boxplot for score
 boxplot_score = create_boxplot(score_data_all, 'Score', 'Boxplot of Score', all_conditions_colors,
-                               all_conditions_hatch_patterns, 4.5, all_conditions_xtick_labels,
+                               all_conditions_hatch_patterns, [4.5], all_conditions_xtick_labels,
                                all_confitions_figsize)
 boxplot_score.savefig('../../plots/condition-all/boxplot_score_all.pdf', format='pdf')
 boxplot_score.show()

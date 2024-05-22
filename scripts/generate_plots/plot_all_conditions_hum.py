@@ -67,14 +67,14 @@ all_conditions_hum_figsize = (10.5, 6)
 
 # Create boxplot for items found
 boxplot_items_all_hum = create_boxplot(items_data_all_hum, 'Number of Found Items', 'Boxplot of Items Found (Humans)',
-                                       all_conditions_hum_colors, all_conditions_hum_hatch_patterns, 3.5,
+                                       all_conditions_hum_colors, all_conditions_hum_hatch_patterns, [3.5],
                                        all_conditions_hum_xtick_labels, all_conditions_hum_figsize)
 boxplot_items_all_hum.savefig('../../plots/condition-all/boxplot_items_all_hum.pdf', format='pdf')
 boxplot_items_all_hum.show()
 
 # Create boxplot for score
 boxplot_score_all_hum = create_boxplot(score_data_all_hum, 'Score', 'Boxplot of Score (Humans)',
-                                       all_conditions_hum_colors, all_conditions_hum_hatch_patterns, 3.5,
+                                       all_conditions_hum_colors, all_conditions_hum_hatch_patterns, [3.5],
                                        all_conditions_hum_xtick_labels, all_conditions_hum_figsize)
 boxplot_score_all_hum.savefig('../../plots/condition-all/boxplot_score_all_hum.pdf', format='pdf')
 boxplot_score_all_hum.show()

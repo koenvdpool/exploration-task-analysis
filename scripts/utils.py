@@ -25,7 +25,7 @@ def get_col_as_ints(csv_filename, column_index, delimiter=','):
         return [int(row[column_index]) for row in reader if row]
 
 
-def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_pos, xtick_labels, figsize,
+def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_positions, xtick_labels, figsize,
                    bbox_to_anchor=(0.8, 1), variant=None):
     """
     TODO.
@@ -41,7 +41,9 @@ def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_pos, x
         patch.set_edgecolor(hatch_color)
         patch.set_hatch(hatch)
 
-    ax.axvline(x=vert_line_pos, color='lightgrey', linestyle=':', linewidth=1.5)
+    # Draw multiple vertical lines
+    for pos in vert_line_positions:
+        ax.axvline(x=pos, color='lightgrey', linestyle=':', linewidth=1.5)
 
     ax.set_xticklabels(xtick_labels)
 
