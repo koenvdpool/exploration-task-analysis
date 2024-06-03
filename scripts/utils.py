@@ -2,6 +2,7 @@ from typing import List, Dict
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 import csv
+import pandas as pd
 
 
 def list_dicts2csv(raw_data, filename: str):
@@ -72,3 +73,31 @@ def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_positi
     plt.tight_layout(pad=2)
 
     return fig
+
+
+def count_human_participants(file_path):
+    """
+    TODO.
+    """
+    data = pd.read_csv(file_path)
+
+    human_participants_count = data[data['isRobot'] == 0].shape[0]
+
+    return human_participants_count
+
+
+def analyze_total_trials(file_path):
+    """
+    TODO.
+    """
+    data = pd.read_csv(file_path)
+
+    human_data = data[data['isRobot'] == 0]
+
+    average_total_trials = human_data['TotalTrials'].mean()
+    std_total_trials = human_data['TotalTrials'].std()
+
+    return {
+        'average_total_trials': average_total_trials,
+        'std_total_trials': std_total_trials
+    }

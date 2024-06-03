@@ -18,32 +18,22 @@ def get_connection():
 def execute_query(is_semantic, bot_num):
     """ TODO. """
     query_template = """
-WITH ParticipantData AS (
-    SELECT part.pID AS ParticipantID, 
-           exp.id AS GroupID,
-           (COUNT(DISTINCT gameState.itemId) - 6) AS ItemsFound, 
-           part.score AS Score, 
-           COUNT(DISTINCT trials.trialSequence) AS TotalTrials, 
-           part.isRobot
-    FROM cce_experiments.participants part 
-    LEFT JOIN cce_experiments.experiments exp 
-        ON exp.id = part.experimentID 
-    LEFT JOIN cce_experiments.gamestate gameState 
-        ON gameState.participantID = part.pID
-    LEFT JOIN cce_experiments.trials trials
-        ON trials.pID = part.pID
-    WHERE exp.isSemantic = %s AND exp.botNums = %s AND exp.nParticipants = 6
-    GROUP BY exp.id, part.pID, part.score
-)
-
-SELECT * 
-FROM ParticipantData
-WHERE GroupID NOT IN (
-    SELECT GroupID
-    FROM ParticipantData
-    WHERE TotalTrials = 0
-)
-ORDER BY GroupID, ParticipantID;
+SELECT part.pID AS ParticipantID,
+		exp.id AS GroupID,
+        (COUNT(DISTINCT gameState.itemId) - 6) AS ItemsFound,
+        part.score AS Score,
+        COUNT(DISTINCT trials.trialSequence) AS TotalTrials,
+        part.isRobot
+FROM cce_experiments.participants part 
+LEFT JOIN cce_experiments.experiments exp 
+    ON exp.id = part.experimentID 
+LEFT JOIN cce_experiments.gamestate gameState 
+    ON gameState.participantID = part.pID
+LEFT JOIN cce_experiments.trials trials
+	ON trials.pID = part.pID
+WHERE exp.isSemantic = %s AND exp.botNums = %s AND exp.nParticipants = 6
+GROUP BY exp.id, part.pID, part.score
+ORDER BY exp.id, part.pID;
 """
     with get_connection() as connection:
         with connection.cursor() as cursor:
