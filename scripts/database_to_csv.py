@@ -18,7 +18,7 @@ def get_connection():
 def execute_query(is_semantic, bot_num):
     """ TODO. """
     query_template = """
-        WITH ParticipantData AS (
+WITH ParticipantData AS (
     SELECT part.pID AS ParticipantID, 
            exp.id AS GroupID,
            (COUNT(DISTINCT gameState.itemId) - 6) AS ItemsFound, 
@@ -44,7 +44,7 @@ WHERE GroupID NOT IN (
     WHERE TotalTrials = 0
 )
 ORDER BY GroupID, ParticipantID;
-    """
+"""
     with get_connection() as connection:
         with connection.cursor() as cursor:
             cursor.execute(query_template, (is_semantic, bot_num))
