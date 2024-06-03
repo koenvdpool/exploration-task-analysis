@@ -29,8 +29,8 @@ score_data_preliminary_study = [score_sem_6hum, score_sem_6bots, score_nonsem_6h
 # ---------- CREATE ITEM FIGURE ----------
 preliminary_study_colors = ['#A2CBE8', '#A7D3A6', '#A2CBE8', '#A7D3A6']
 preliminary_study_hatch_patterns = ['///', '///', '..', '..']
-preliminary_study_xtick_labels = ['All Humans', 'All Bots'] * 2
-preliminary_study_figsize = (5, 7)
+preliminary_study_xtick_labels = ['Human-Only', 'Bot-Only'] * 2
+preliminary_study_figsize = (5, 5)
 
 # Create boxplot for items
 boxplot_items_preliminary_study = create_boxplot(items_data_preliminary_study, 'Number of Found Items',

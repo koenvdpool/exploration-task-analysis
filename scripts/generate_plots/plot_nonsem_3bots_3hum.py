@@ -44,7 +44,7 @@ score_data_nonsem_3b3h = [sore_nonsem_6h, score_nonsem_3b3h, score_nonsem_3b3h_h
 # ---------- CREATE FIGURES ----------
 nonsem_3b3h_colors = ['#A2CBE8', '#F9A7A7', '#FBCFCF', '#FDE7E7']
 nonsem_3b3h_hatch_patterns = ['..', '..', '..', '..']
-nonsem_3b3h_xtick_labels = ['All Humans', 'Hybrid: 3 Bots', 'Only Humans\nHybrid: 3 Bots', 'Only Bots\nHybrid: 3 Bots']
+nonsem_3b3h_xtick_labels = ['Human-Only', 'Hybrid: 3 Bots', 'Humans\nHybrid: 3 Bots', 'Bots\nHybrid: 3 Bots']
 nonsem_3b3h_figsize = (8, 6)
 
 # Create boxplot for items found

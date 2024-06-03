@@ -62,7 +62,7 @@ score_data_all_hum = [score_sem_6hum, score_sem_1bot_5hum, score_sem_3bots_3hum,
 # ---------- CREATE FIGURES ----------
 all_conditions_hum_colors = ['#A2CBE8', '#FCE1D1', '#FBCFCF', '#A2CBE8', '#FCE1D1', '#FBCFCF']
 all_conditions_hum_hatch_patterns = ['///', '///', '///', '..', '..', '..']
-all_conditions_hum_xtick_labels = ['All Humans', 'Only Humans\nHybrid: 1 Bot', 'Only Humans\nHybrid: 3 Bots'] * 2
+all_conditions_hum_xtick_labels = ['Human-Only', 'Humans\nHybrid: 1 Bot', 'Humans\nHybrid: 3 Bots'] * 2
 all_conditions_hum_figsize = (10.5, 6)
 
 # Create boxplot for items found

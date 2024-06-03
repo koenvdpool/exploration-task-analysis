@@ -44,7 +44,7 @@ score_data_sem_1b5h = [sore_sem_6h, score_sem_1b5h, score_sem_1b5h_hum, score_se
 # ---------- CREATE FIGURES ----------
 sem_1b5h_colors = ['#A2CBE8', '#F9CDAE', '#FCE1D1', '#FDF2EC']
 sem_1b5h_hatch_patterns = ['///', '///', '///', '///']
-sem_1b5h_xtick_labels = ['All Humans', 'Hybrid: 1 Bot', 'Only Humans\nHybrid: 1 Bot', 'Only Bots\nHybrid: 1 Bot']
+sem_1b5h_xtick_labels = ['Human-Only', 'Hybrid: 1 Bot', 'Humans\nHybrid: 1 Bot', 'Bots\nHybrid: 1 Bot']
 sem_1b5h_figsize = (8, 6)
 
 # Create boxplot for items found

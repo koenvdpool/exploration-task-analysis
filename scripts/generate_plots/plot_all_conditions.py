@@ -41,7 +41,7 @@ score_data_all = [score_sem_6hum, score_sem_6bots, score_sem_1bot_5hum, score_se
 # ---------- CREATE FIGURES ----------
 all_conditions_colors = ['#A2CBE8', '#A7D3A6', '#F9CDAE', '#F9A7A7', '#A2CBE8', '#A7D3A6', '#F9CDAE', '#F9A7A7']
 all_conditions_hatch_patterns = ['///', '///', '///', '///', '..', '..', '..', '..']
-all_conditions_xtick_labels = ['All Humans', 'All Bots', 'Hybrid: 1 Bot', 'Hybrid: 3 Bots'] * 2
+all_conditions_xtick_labels = ['Human-Only', 'Bot-Only', 'Hybrid: 1 Bot', 'Hybrid: 3 Bots'] * 2
 all_confitions_figsize = (10.5, 6)
 
 # Create boxplot for items
