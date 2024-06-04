@@ -46,7 +46,7 @@ score_data_all_hum = [score_nonsem_6hum, score_nonsem_1bot_5hum, score_nonsem_3b
 all_conditions_hum_colors = ['#A1BAE0', '#F9D2B9', '#F9A7A7']
 all_conditions_hum_hatch_patterns = ['///', '..', '..']
 all_conditions_hum_xtick_labels = ['Human-Only', 'Humans\nHybrid: 1 Bot', 'Humans\nHybrid: 3 Bots']
-all_conditions_hum_figsize = (7, 6)
+all_conditions_hum_figsize = (6, 6)
 
 # Create boxplot for items found
 boxplot_items_all_hum = create_boxplot(items_data_all_hum, 'Number of Found Items', 'Boxplot of Items Found (Humans)',

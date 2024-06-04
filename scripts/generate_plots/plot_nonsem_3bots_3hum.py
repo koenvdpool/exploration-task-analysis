@@ -41,7 +41,7 @@ score_data_nonsem_3b3h = [score_nonsem_3b3h, score_nonsem_3b3h_hum, score_nonsem
 nonsem_3b3h_colors = ['#F96D6D', '#F9A7A7', '#FBCFCF']
 nonsem_3b3h_hatch_patterns = ['..', '..', '..', '..']
 nonsem_3b3h_xtick_labels = ['Hybrid: 3 Bots', 'Humans\nHybrid: 3 Bots', 'Bots\nHybrid: 3 Bots']
-nonsem_3b3h_figsize = (7, 6)
+nonsem_3b3h_figsize = (6, 6)
 
 # Create boxplot for items found
 boxplot_items_nonsem_3b3h = create_boxplot(items_data_nonsem_3b3h, 'Number of Found Items',

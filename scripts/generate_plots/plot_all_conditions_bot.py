@@ -46,7 +46,7 @@ score_data_all_bots = [score_nonsem_6bots, score_nonsem_1bot_5hum, score_nonsem_
 all_conditions_bot_colors = ['#A6D09D', '#FCE5D2', '#FBCFCF']
 all_conditions_bot_hatch_patterns = ['///', '..', '..']
 all_conditions_bot_xtick_labels = ['Bot-Only', 'Bots\nHybrid: 1 Bot', 'Bots\nHybrid: 3 Bots']
-all_conditions_bot_figsize = (5, 6)
+all_conditions_bot_figsize = (6, 6)
 
 # Create boxplot for items found
 boxplot_items_all_bot = create_boxplot(items_data_all_bots, 'Number of Found Items', 'Boxplot of Items Found (Bots)',
