@@ -40,31 +40,33 @@ def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_positi
     for patch, color, hatch in zip(bp['boxes'], colors, hatch_patterns):
         patch.set_facecolor(color)
         patch.set_edgecolor(hatch_color)
-        patch.set_hatch(hatch)
+        if variant is not None:
+            patch.set_hatch(hatch)
 
-    # Draw multiple vertical lines
-    for pos in vert_line_positions:
-        ax.axvline(x=pos, color='lightgrey', linestyle=':', linewidth=1.5)
+    if variant is not None:
+        for pos in vert_line_positions:
+            ax.axvline(x=pos, color='lightgrey', linestyle=':', linewidth=1.5)
 
     ax.set_xticklabels(xtick_labels)
 
-    semantic_patch = Patch(facecolor='#D3D3D3', hatch='///', label='Semantic')
-    non_semantic_patch = Patch(facecolor='#D3D3D3', hatch='...', label='Non-Semantic')
+    non_hybrid_patch = Patch(facecolor='#D3D3D3', hatch='///', label='Non-Hybrid')
+    hybrid_patch = Patch(facecolor='#D3D3D3', hatch='...', label='Hybrid')
 
-    if variant == "semantic":
-        legend_handles = [semantic_patch]
-    elif variant == "non-semantic":
-        legend_handles = [non_semantic_patch]
-    else:
-        legend_handles = [semantic_patch, non_semantic_patch]
+    if variant == "Non-Hybrid":
+        legend_handles = [non_hybrid_patch]
+    elif variant == "Hybrid":
+        legend_handles = [hybrid_patch]
+    elif variant == "all":
+        legend_handles = [non_hybrid_patch, hybrid_patch]
 
-    ax.legend(
-        handles=legend_handles,
-        title='Game Variant',
-        loc='upper left',
-        bbox_to_anchor=bbox_to_anchor,
-        frameon=False
-    )
+    if variant is not None:
+        ax.legend(
+            handles=legend_handles,
+            title='Game Variant',
+            loc='upper left',
+            bbox_to_anchor=bbox_to_anchor,
+            frameon=False
+        )
 
     ax.set_xlabel('Conditions')
     ax.set_ylabel(ylabel)
@@ -75,29 +77,33 @@ def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_positi
     return fig
 
 
-def count_human_participants(file_path):
+def calculate_statistics(df, filter_is_robot=None):
     """
-    TODO.
+    Calculate median, mean, and standard deviation for 'ItemsFound',
+    'Score', and 'TotalTrials' columns in the given DataFrame.
     """
-    data = pd.read_csv(file_path)
+    if filter_is_robot is not None:
+        filtered_df = df[df['isRobot'] == filter_is_robot]
+    else:
+        filtered_df = df
 
-    human_participants_count = data[data['isRobot'] == 0].shape[0]
-
-    return human_participants_count
-
-
-def analyze_total_trials(file_path):
-    """
-    TODO.
-    """
-    data = pd.read_csv(file_path)
-
-    human_data = data[data['isRobot'] == 0]
-
-    average_total_trials = human_data['TotalTrials'].mean()
-    std_total_trials = human_data['TotalTrials'].std()
-
-    return {
-        'average_total_trials': average_total_trials,
-        'std_total_trials': std_total_trials
+    statistics = {
+        'Statistic': ['Median', 'Mean', 'Std'],
+        'ItemsFound': [
+            filtered_df['ItemsFound'].median(),
+            filtered_df['ItemsFound'].mean(),
+            filtered_df['ItemsFound'].std()
+        ],
+        'Score': [
+            filtered_df['Score'].median(),
+            filtered_df['Score'].mean(),
+            filtered_df['Score'].std()
+        ],
+        'TotalTrials': [
+            filtered_df['TotalTrials'].median(),
+            filtered_df['TotalTrials'].mean(),
+            filtered_df['TotalTrials'].std()
+        ]
     }
+
+    return pd.DataFrame(statistics), len(filtered_df)

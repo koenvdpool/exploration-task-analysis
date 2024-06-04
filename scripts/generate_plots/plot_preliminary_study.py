@@ -5,14 +5,14 @@ SCORE_COLUMN_INDEX = 3
 
 
 # ---------- ITEMS FOUND: PRELIMINARY STUDY ----------
-items_sem_6hum = get_col_as_ints('../../csv_data/sem_6hum.csv', ITEM_COLUMN_INDEX)
+items_sem_6hum = get_col_as_ints('../../csv_data/archive_data/sem_6hum.csv', ITEM_COLUMN_INDEX)
 items_sem_6bots = get_col_as_ints('../../csv_data/6bots.csv', ITEM_COLUMN_INDEX)
 items_nonsem_6hum = get_col_as_ints('../../csv_data/nonsem_6hum.csv', ITEM_COLUMN_INDEX)
 items_nonsem_6bots = get_col_as_ints('../../csv_data/6bots.csv', ITEM_COLUMN_INDEX)
 
 
 # ---------- SCORE: PRELIMINARY STUDY ----------
-score_sem_6hum = get_col_as_ints('../../csv_data/sem_6hum.csv', SCORE_COLUMN_INDEX)
+score_sem_6hum = get_col_as_ints('../../csv_data/archive_data/sem_6hum.csv', SCORE_COLUMN_INDEX)
 score_sem_6bots = get_col_as_ints('../../csv_data/6bots.csv', SCORE_COLUMN_INDEX)
 score_nonsem_6hum = get_col_as_ints('../../csv_data/nonsem_6hum.csv', SCORE_COLUMN_INDEX)
 score_nonsem_6bots_ = get_col_as_ints('../../csv_data/6bots.csv', SCORE_COLUMN_INDEX)
@@ -27,7 +27,7 @@ score_data_preliminary_study = [score_sem_6hum, score_sem_6bots, score_nonsem_6h
 
 
 # ---------- CREATE ITEM FIGURE ----------
-preliminary_study_colors = ['#A2CBE8', '#A7D3A6', '#A2CBE8', '#A7D3A6']
+preliminary_study_colors = ['#A1BAE0', '#A6D09D', '#A1BAE0', '#A6D09D']
 preliminary_study_hatch_patterns = ['///', '///', '..', '..']
 preliminary_study_xtick_labels = ['Human-Only', 'Bot-Only'] * 2
 preliminary_study_figsize = (5, 5)
@@ -37,7 +37,7 @@ boxplot_items_preliminary_study = create_boxplot(items_data_preliminary_study, '
                                                  'Boxplot of Preliminary Study', preliminary_study_colors,
                                                  preliminary_study_hatch_patterns, [2.5],
                                                  preliminary_study_xtick_labels, preliminary_study_figsize,
-                                                 bbox_to_anchor=(0.55, 1))
+                                                 bbox_to_anchor=(0.55, 1), variant='all')
 boxplot_items_preliminary_study.savefig('../../plots/preliminary-study/boxplot_items_preliminary_study.pdf', format='pdf')
 boxplot_items_preliminary_study.show()
 
@@ -46,6 +46,6 @@ boxplot_score_preliminary_study = create_boxplot(score_data_preliminary_study, '
                                                  'Boxplot of Preliminary Study', preliminary_study_colors,
                                                  preliminary_study_hatch_patterns, [2.5],
                                                  preliminary_study_xtick_labels, preliminary_study_figsize,
-                                                 bbox_to_anchor=(0.55, 1))
+                                                 bbox_to_anchor=(0.55, 1), variant='all')
 boxplot_score_preliminary_study.savefig('../../plots/preliminary-study/boxplot_score_preliminary_study.pdf', format='pdf')
 boxplot_score_preliminary_study.show()

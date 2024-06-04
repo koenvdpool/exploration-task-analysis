@@ -5,8 +5,8 @@ from scripts.utils import create_boxplot
 
 # ---------- SEMANTIC CONDITION: 3 BOTS 3 HUMANS ----------
 # Get data from CSV files
-path_sem_3b3h = '../../csv_data/sem_3bots_3hum.csv'
-path_sem_6h = '../../csv_data/sem_6hum.csv'
+path_sem_3b3h = '../../../csv_data/archive_data/sem_3bots_3hum.csv'
+path_sem_6h = '../../../csv_data/archive_data/sem_6hum.csv'
 
 # Read CSV files
 df_sem_3b3h = pd.read_csv(path_sem_3b3h)
