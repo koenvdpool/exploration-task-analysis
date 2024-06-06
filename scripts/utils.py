@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 import csv
 import pandas as pd
+from scipy.stats import mannwhitneyu
 
 
 def list_dicts2csv(raw_data, filename: str):
@@ -107,3 +108,14 @@ def calculate_statistics(df, filter_is_robot=None):
     }
 
     return pd.DataFrame(statistics), len(filtered_df)
+
+
+def rank_biserial(x, y, alternative='greater'):
+    """
+    TODO.
+    """
+    u, _ = mannwhitneyu(x, y, alternative=alternative)
+    n1 = len(x)
+    n2 = len(y)
+    rank_biserial = (2 * u) / (n1 * n2) - 1
+    return rank_biserial
