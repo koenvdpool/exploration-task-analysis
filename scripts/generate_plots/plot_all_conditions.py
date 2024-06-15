@@ -40,7 +40,7 @@ score_data_all = [score_nonsem_6hum, score_nonsem_6bots, score_nonsem_1bot_5hum,
 all_conditions_colors = ['#A1BAE0', '#A6D09D', '#FCC09C', '#F96D6D']
 all_conditions_hatch_patterns = ['///', '///', '..', '..']
 all_conditions_xtick_labels = ['Human-Only', 'Bot-Only', 'Hybrid: 1 Bot', 'Hybrid: 3 Bots']
-all_confitions_figsize = (8, 6)
+all_confitions_figsize = (6, 6)
 
 # Create boxplot for items
 boxplot_items = create_boxplot(items_data_all, 'Number of Found Items', 'Boxplot of Items', all_conditions_colors,
@@ -52,6 +52,6 @@ boxplot_items.show()
 # Create boxplot for score
 boxplot_score = create_boxplot(score_data_all, 'Score', 'Boxplot of Score', all_conditions_colors,
                                all_conditions_hatch_patterns, [2.5], all_conditions_xtick_labels,
-                               all_confitions_figsize)
+                               all_confitions_figsize, outliers=True)
 boxplot_score.savefig('../../plots/condition-all/boxplot_score_all.pdf', format='pdf')
 boxplot_score.show()

@@ -4,6 +4,7 @@ from matplotlib.patches import Patch
 import csv
 import pandas as pd
 from scipy.stats import mannwhitneyu
+import numpy as np
 
 
 def list_dicts2csv(raw_data, filename: str):
@@ -25,57 +26,6 @@ def get_col_as_ints(csv_filename, column_index, delimiter=','):
         reader = csv.reader(csvfile, delimiter=delimiter)
         next(reader)  # Skip the header row
         return [int(row[column_index]) for row in reader if row]
-
-
-def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_positions, xtick_labels, figsize,
-                   bbox_to_anchor=(0.8, 1), variant=None):
-    """
-    TODO.
-    """
-    fig, ax = plt.subplots(figsize=figsize)
-
-    hatch_color = '#808080'
-
-    bp = ax.boxplot(data, vert=True, patch_artist=True)
-
-    for patch, color, hatch in zip(bp['boxes'], colors, hatch_patterns):
-        patch.set_facecolor(color)
-        patch.set_edgecolor(hatch_color)
-        if variant is not None:
-            patch.set_hatch(hatch)
-
-    if variant is not None:
-        for pos in vert_line_positions:
-            ax.axvline(x=pos, color='lightgrey', linestyle=':', linewidth=1.5)
-
-    ax.set_xticklabels(xtick_labels)
-
-    non_hybrid_patch = Patch(facecolor='#D3D3D3', hatch='///', label='Non-Hybrid')
-    hybrid_patch = Patch(facecolor='#D3D3D3', hatch='...', label='Hybrid')
-
-    if variant == "Non-Hybrid":
-        legend_handles = [non_hybrid_patch]
-    elif variant == "Hybrid":
-        legend_handles = [hybrid_patch]
-    elif variant == "all":
-        legend_handles = [non_hybrid_patch, hybrid_patch]
-
-    if variant is not None:
-        ax.legend(
-            handles=legend_handles,
-            title='Game Variant',
-            loc='upper left',
-            bbox_to_anchor=bbox_to_anchor,
-            frameon=False
-        )
-
-    ax.set_xlabel('Conditions')
-    ax.set_ylabel(ylabel)
-    ax.set_title(title)
-
-    plt.tight_layout(pad=2)
-
-    return fig
 
 
 def calculate_statistics(df, filter_is_robot=None):
@@ -109,6 +59,65 @@ def calculate_statistics(df, filter_is_robot=None):
 
     return pd.DataFrame(statistics), len(filtered_df)
 
+
+def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_positions, xtick_labels, figsize,
+                   bbox_to_anchor=(0.8, 1), variant=None, boxplot_width=0.3, space_factor=0.5, outliers=False):
+    """
+    Creates a customized boxplot.
+    """
+    # Log-transform the data if outliers flag is on, skipping zeros
+    if outliers:
+        data = [np.log(np.array(d)[np.array(d) != 0]) for d in data]
+        ylabel = f'Log({ylabel})'
+
+    fig, ax = plt.subplots(figsize=figsize)
+
+    hatch_color = '#808080'
+
+    # Adjust positions for the boxplots
+    positions = [i * space_factor for i in range(1, len(data) + 1)]
+
+    bp = ax.boxplot(data, vert=True, patch_artist=True, positions=positions, widths=boxplot_width)
+
+    for patch, color, hatch in zip(bp['boxes'], colors, hatch_patterns):
+        patch.set_facecolor(color)
+        patch.set_edgecolor(hatch_color)
+        if variant is not None:
+            patch.set_hatch(hatch)
+
+    if variant is not None:
+        for pos in vert_line_positions:
+            ax.axvline(x=pos * space_factor, color='lightgrey', linestyle=':', linewidth=1.5)
+
+    ax.set_xticklabels(xtick_labels, rotation=45, ha='right')
+    ax.set_xticks(positions)
+
+    non_hybrid_patch = Patch(facecolor='#D3D3D3', hatch='///', label='Non-Hybrid')
+    hybrid_patch = Patch(facecolor='#D3D3D3', hatch='...', label='Hybrid')
+
+    if variant == "Non-Hybrid":
+        legend_handles = [non_hybrid_patch]
+    elif variant == "Hybrid":
+        legend_handles = [hybrid_patch]
+    elif variant == "all":
+        legend_handles = [non_hybrid_patch, hybrid_patch]
+
+    if variant is not None:
+        ax.legend(
+            handles=legend_handles,
+            title='Game Variant',
+            loc='upper left',
+            bbox_to_anchor=bbox_to_anchor,
+            frameon=False
+        )
+
+    ax.set_xlabel('Conditions')
+    ax.set_ylabel(ylabel)
+    ax.set_title(title)
+
+    plt.tight_layout(pad=2)
+
+    return fig
 
 def rank_biserial(x, y, alternative='greater'):
     """

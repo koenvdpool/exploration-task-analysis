@@ -58,6 +58,6 @@ boxplot_items_all_hum.show()
 # Create boxplot for score
 boxplot_score_all_hum = create_boxplot(score_data_all_hum, 'Score', 'Boxplot of Score (Humans)',
                                        all_conditions_hum_colors, all_conditions_hum_hatch_patterns, [1.5],
-                                       all_conditions_hum_xtick_labels, all_conditions_hum_figsize, bbox_to_anchor=(0.65, 1))
+                                       all_conditions_hum_xtick_labels, all_conditions_hum_figsize, bbox_to_anchor=(0.65, 1), outliers=True)
 boxplot_score_all_hum.savefig('../../plots/condition-all/boxplot_score_all_hum.pdf', format='pdf')
 boxplot_score_all_hum.show()

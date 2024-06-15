@@ -55,6 +55,6 @@ boxplot_items_nonsem_1b5h.show()
 boxplot_score_nonsem_1b5h = create_boxplot(score_data_nonsem_1b5h, 'Score',
                                            'Score in Non-Semantic Condition: Hybrid with 1 Bot', nonsem_1b5h_colors,
                                            nonsem_1b5h_hatch_patterns, [1.5], nonsem_1b5h_xtick_labels,
-                                           nonsem_1b5h_figsize, bbox_to_anchor=(0.75, 1))
+                                           nonsem_1b5h_figsize, bbox_to_anchor=(0.75, 1), outliers=True)
 boxplot_score_nonsem_1b5h.savefig('../../plots/condition-non-semantic/boxplot_score_nonsem_1bot_5hum.pdf', format='pdf')
 boxplot_score_nonsem_1b5h.show()

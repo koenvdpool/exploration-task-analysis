@@ -58,6 +58,6 @@ boxplot_items_all_bot.show()
 # Create boxplot for score
 boxplot_score_all_bot = create_boxplot(score_data_all_bots, 'Score', 'Boxplot of Score (Bots)',
                                        all_conditions_bot_colors, all_conditions_bot_hatch_patterns, [1.5],
-                                       all_conditions_bot_xtick_labels, all_conditions_bot_figsize, bbox_to_anchor=(0.65, 1))
+                                       all_conditions_bot_xtick_labels, all_conditions_bot_figsize, bbox_to_anchor=(0.65, 1), outliers=True)
 boxplot_score_all_bot.savefig('../../plots/condition-all/boxplot_score_all_bots.pdf', format='pdf')
 boxplot_score_all_bot.show()
