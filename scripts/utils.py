@@ -119,6 +119,7 @@ def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_positi
 
     return fig
 
+
 def rank_biserial(x, y, alternative='greater'):
     """
     TODO.

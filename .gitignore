@@ -8,4 +8,4 @@ __pycache__
 
 csv_data/test.csv
 
-scripts/extract_data.sql
+scripts/sql_queries
