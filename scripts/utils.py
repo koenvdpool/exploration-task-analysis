@@ -105,7 +105,7 @@ def create_boxplot(data, ylabel, title, colors, hatch_patterns, vert_line_positi
     if variant is not None:
         ax.legend(
             handles=legend_handles,
-            title='Game Variant',
+            title='Task Variant',
             loc='upper left',
             bbox_to_anchor=bbox_to_anchor,
             frameon=False

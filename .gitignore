@@ -6,6 +6,4 @@ scripts/db.py
 
 __pycache__
 
-csv_data/test.csv
-
 scripts/sql_queries
