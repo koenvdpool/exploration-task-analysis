@@ -2,11 +2,13 @@
 
 scripts/db.py
 
+scripts/utils.py
+
+scripts/sql_queries
+
 .venv
 
 __pycache__
-
-/scripts/
 
 statistical_tests/performance/benjamini-hochberg-correction.py
 
