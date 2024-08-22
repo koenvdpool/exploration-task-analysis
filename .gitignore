@@ -2,8 +2,6 @@
 
 scripts/db.py
 
-scripts/utils.py
-
 scripts/sql_queries
 
 .venv
