@@ -7,3 +7,7 @@ scripts/db.py
 __pycache__
 
 /scripts/
+
+statistical_tests/performance/benjamini-hochberg-correction.py
+
+statistical_tests/performance/descriptive_statistics.py
