@@ -6,4 +6,4 @@ scripts/db.py
 
 __pycache__
 
-scripts/sql_queries
+/scripts/
