@@ -7,20 +7,8 @@ from scipy.stats import mannwhitneyu
 import numpy as np
 
 
-def list_dicts2csv(raw_data, filename: str):
-    """Converts raw data (list of dicts) to a CSV file."""
-
-    keys = raw_data[0].keys()  # get keys for header
-
-    with open(filename, 'w', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=keys)
-        writer.writeheader()  # create header
-
-        for row in raw_data:  # write data
-            writer.writerow(row)
-
-
 def get_col_as_ints(csv_filename, column_index, delimiter=','):
+    """Reads column CSV file and returns a list of integers."""
     with open(csv_filename, 'r', newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=delimiter)
         next(reader)  # Skip the header row
